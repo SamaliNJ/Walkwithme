@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Walk With Me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scrapbook-container">
+    <header>
+      <h1>Walk With Me</h1>
+      <p class="tagline"> Walk with me brought Elyse and Samali together. Here is a journey of two lives intertwined showcasing friendship, discovery, and learning through shared moments.</p>
+    </header>
+
+    <nav class="scrapbook-nav">
+      <button onclick="showSection('intro')">📖 Intro</button>
+      <button onclick="showSection('family')">👨‍👩‍👧‍👦 Family</button>
+      <button onclick="showSection('medicine')">💊 Medicine</button>
+      <button onclick="showSection('nature')">🌿 Nature</button>
+      <button onclick="showSection('cooking')">🍲 Cooking</button>
+      <button onclick="showSection('pets')">🐾 Pets</button>
+      <button onclick="showSection('pastimes')">🎨 Pastimes</button>
+      <button onclick="showSection('travel')">🌍 Travel</button>
+      <button onclick="showSection('quiz')">❓ Pop Quiz</button>
+    </nav>
+
+    <main>
+      <section id="intro" class="scrapbook-section active">
+        <div class="bio-grid">
+          <div class="bio-entry">
+            <img src="images/samali_intro.jpg" alt="Samali"/>
+            <p><strong>Samali</strong><br />Studying, traveling, and fun car rides with Milli and Mochi.</p>
+          </div>
+          <div class="bio-entry">
+            <img src="images/elyse_intro.jpg" alt="Elyse"/>
+            <p><strong>Elyse</strong><br />Planning, traveling, and cozy days with Craig and Teddy .</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© Samali & Elyse — Walk With Me 2025</p>
+    </footer>
+  </div>
+
+  <section id="quiz" class="scrapbook-section">
+    <h2>🧠 Whose Story Is It?</h2>
+    <p class="tagline">You’ve walked with us. Now let’s see what you remember from the journey.</p>
+    <form id="quiz-form">
+      <ol>
+        <li>
+          <p>One of us became a GG (great-grandma!) after a life-changing surgery. Who might that be?</p>
+          <label><input type="radio" name="q1" value="Samali"> Samali</label>
+          <label><input type="radio" name="q1" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Milli and Mochi ride shotgun in whose car?</p>
+          <label><input type="radio" name="q2" value="Samali"> Samali</label>
+          <label><input type="radio" name="q2" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who keeps things cozy with Craig and Teddy?</p>
+          <label><input type="radio" name="q3" value="Samali"> Samali</label>
+          <label><input type="radio" name="q3" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who once turned a hospital gown into a fashion moment?</p>
+          <label><input type="radio" name="q4" value="Samali"> Samali</label>
+          <label><input type="radio" name="q4" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who gave a thumbs-up before heading into a life-saving lung transplant?</p>
+          <label><input type="radio" name="q5" value="Samali"> Samali</label>
+          <label><input type="radio" name="q5" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who crossed a finish line to honor her organ donor?</p>
+          <label><input type="radio" name="q6" value="Samali"> Samali</label>
+          <label><input type="radio" name="q6" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who’s been sketching gowns since before she could spell "serger"?</p>
+          <label><input type="radio" name="q7" value="Samali"> Samali</label>
+          <label><input type="radio" name="q7" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Whose galettes made us all a little hungry for friendship?</p>
+          <label><input type="radio" name="q8" value="Samali"> Samali</label>
+          <label><input type="radio" name="q8" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>One of us had a deep-fried pastry disaster and survived to tell the tale. Any guesses?</p>
+          <label><input type="radio" name="q9" value="Samali"> Samali</label>
+          <label><input type="radio" name="q9" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Karting queen? Hint: she prefers speed over jogging.</p>
+          <label><input type="radio" name="q10" value="Samali"> Samali</label>
+          <label><input type="radio" name="q10" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who found healing by hiking up to waterfalls?</p>
+          <label><input type="radio" name="q11" value="Samali"> Samali</label>
+          <label><input type="radio" name="q11" value="Elyse"> Elyse</label>
+        </li>
+        <li>
+          <p>Who’s stood just feet from elephants on a safari and lived to tell the tale?</p>
+          <label><input type="radio" name="q12" value="Samali"> Samali</label>
+          <label><input type="radio" name="q12" value="Elyse"> Elyse</label>
+        </li>
+      </ol>
+      <button type="button" onclick="checkQuiz()">Check My Alignment</button>
+      <div id="quiz-result" style="margin-top:1em; font-weight:bold;"></div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>© Samali & Elyse — Walk With Me 2025</p>
+</footer>
+</div>
+
+  <script>
+    const sections = {
+      family: [
+        { img: "images/samali_family1.jpg", caption: "Samali and her mother, Milsaint. 'She is one of my best friends and cheerleaders'" },
+        { img: "images/elyse_family1.JPG", caption: "Elyse, her husband Craig, along with their son Bryan, daughter Stevie, and grandson Emmett.  One of Elyse’s greatest joys post transplant was becoming a GG to Emmett!" },
+        { img: "images/samali_family2.jpg", caption: "A snapshot of some of Samali's many children" },
+        { img: "images/elyse_family2.JPG", caption: "Elyse, Stevie and Emmett's bright smiles and happy smiles" }
+      ],
+      medicine: [
+        { img: "images/samali_medicine1.JPG", caption: "Hospital gowns are the new hot fashion trend. Samali before her endometriosis surgery" },
+        { img: "images/elyse_medicine1.JPG", caption: "Elyse right before she was rolled into to OR for a lifesaving lung transplant to replace her damaged lungs due to Cystic Fibrosis! Thumbs up for a successful surgery and hopes for a renewed and healthy future!" },
+        { img: "images/samali_medicine2.PNG", caption: "Samali's mom after her valve replacement surgery" },
+        { img: "images/elyse_medicine2.JPG", caption: "💯 on room air post transplant!!!"}
+      ],
+      nature: [
+        { img: "images/samali_nature1.jpg", caption: "We both like snow in really high places!!" },
+        { img: "images/elyse_nature1.JPG", caption: "We also like hiking to waterfalls" },
+        { img: "images/samali_nature2.jpg", caption: "This actually was not a true hike" },
+        { img: "images/elyse_nature2.JPG", caption: "I told you both like snow, but Elyse is a bonafide hiker" }
+      ],
+      cooking: [
+        { img: "images/samali_cooking1.jpg", caption: "We both like making pasteries! Pictured are mandazis" },
+        { img: "images/elyse_cooking1.JPEG", caption: "A sample of one of many of Elyse's mouth-watering gallettes " },
+        { img: "images/samali_cooking2.jpg", caption: "Samali's failed attempt at frying pasteries" },
+        { img: "images/elyse_cooking2.JPEG", caption: "These gallettes are incredible. Elyse promised to share recipes with Samali" }
+      ],
+      pets: [
+        { img: "images/samali_pets1.jpg", caption: "Milli! Samali's youngest dog" },
+        { img: "images/elyse_pets1.JPG", caption: "Elyse and Teddy!!" },
+        { img: "images/samali_pets2.jpg", caption: "Mochi! Samali's oldest dog" },
+        { img: "images/elyse_pets2.jpg", caption: "The lovable teddy! And incredible hiking companion" }
+      ],
+      pastimes: [
+        { img: "images/samali_crafts1.JPG", caption: "We love making and doing things. Samali loves designing and making gowns" },
+        { img: "images/elyse_crafts1.JPG", caption: "Elyse did a half marathon honoring her donor and donor’s family" },
+        { img: "images/samali_crafts2.jpg", caption: "Samali is not a huge fan of running but she loves going fast (karting!)" },
+        { img: "images/elyse_crafts2.JPEG", caption: "When Elyse is not a crazy adventure or event, she is knitting beautiful peices." }
+      ],
+      travel: [
+        { img: "images/samali_travel1.JPG", caption: "We learned that we both have a passion for traveling. Lakes" },
+        { img: "images/elyse_travel1.JPG", caption: "National Parks" },
+        { img: "images/samali_travel2.JPG", caption: "Auroras" },
+        { img: "images/elyse_travel2.JPG", caption: "Safaris! You name it and we've probably been there or plan to visit" }
+      ]
+    };
+
+    function showSection(id) {
+      document.querySelectorAll('.scrapbook-section').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function checkQuiz() {
+    const answers = {
+      q1: "Elyse",
+      q2: "Samali",
+      q3: "Elyse",
+      q4: "Samali",
+      q5: "Elyse",
+      q6: "Elyse",
+      q7: "Samali",
+      q8: "Elyse",
+      q9: "Samali",
+      q10: "Samali",
+      q11: "Elyse",
+      q12: "Samali"
+    };
+    let score = 0;
+    for (const [q, correct] of Object.entries(answers)) {
+      const selected = document.querySelector(`input[name="${q}"]:checked`);
+      if (selected && selected.value === correct) score++;
+    }
+    const messages = [
+      "💡 Time for a reread, scrapbook detective!",
+      "🌼 Not bad! You are still not aligned.",
+      "🎯 You were paying attention! Nice memory.",
+      "🌟 Soul twin unlocked. You know us so well!"
+    ];
+    let msg = messages[0];
+    if (score >= 9) msg = messages[3];
+    else if (score >= 7) msg = messages[2];
+    else if (score >= 4) msg = messages[1];
+    document.getElementById('quiz-result').textContent = `You got ${score}/12. ${msg}`;
+  }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const main = document.querySelector("main");
+      for (const [id, entries] of Object.entries(sections)) {
+        const section = document.createElement("section");
+        section.id = id;
+        section.className = "scrapbook-section";
+        const title = id.charAt(0).toUpperCase() + id.slice(1);
+        section.innerHTML = `
+          <h2>${title}</h2>
+          <div class="string-line"></div>
+          <div class="memory-gallery">
+            ${entries.map((entry, i) => `
+              <figure class="${i % 2 === 0 ? 'samali' : 'elyse'}">
+                <img src="${entry.img}" />
+                <figcaption>${entry.caption}</figcaption>
+              </figure>
+            `).join("")}
+          </div>
+          <button onclick="showSection('quiz')" class="back-btn"> Quiz Yourself! </button>
+        `;
+        main.appendChild(section);
+      }
+    });
+  </script>
+</body>
+</html>

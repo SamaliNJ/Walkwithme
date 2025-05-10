@@ -1,0 +1,183 @@
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #d8cde8, #e5efdd); /* light purple to olive-tinted */
+  background-size: cover;
+  color: #333;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('images/paper-texture.jpg'); /* replace with your texture file */
+  background-size: cover;
+  opacity: 0.15; /* reduced opacity */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.scrapbook-container {
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.2em;
+}
+
+.tagline {
+  font-style: italic;
+  margin-bottom: 1em;
+  color: #555;
+}
+
+.scrapbook-nav {
+  margin-bottom: 2em;
+}
+
+.scrapbook-nav button {
+  margin: 0.3em;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  border: none;
+  background-color: #eef0f3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.scrapbook-nav button:hover {
+  background-color: #dce3e9;
+}
+
+.scrapbook-section {
+  display: none;
+}
+
+.scrapbook-section.active {
+  display: block;
+}
+
+.bio-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.bio-entry {
+  max-width: 300px;
+}
+
+.bio-entry img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.memory-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.memory-gallery figure {
+  width: 220px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.memory-gallery figure:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.memory-gallery figure:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.memory-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Alternating card styles */
+figure.samali {
+  background-color: #eef5ea;
+  border: 2px dashed #95a98f;
+  transform: rotate(-1.5deg);
+}
+
+figure.elyse {
+  background-color: #f5effb;
+  border: 2px dashed #a593c2;
+  transform: rotate(1.5deg);
+}
+
+/* Neutral image appearance */
+.samali img,
+.elyse img {
+  filter: none;
+}
+
+/* Scrapbook tint overlay */
+figure.samali::after,
+figure.elyse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+figure.samali::after {
+  background-color: #a5c9a4;
+}
+
+figure.elyse::after {
+  background-color: #cab4df;
+}
+
+figcaption {
+  font-style: italic;
+  margin-top: 0.5em;
+  z-index: 2;
+  position: relative;
+}
+
+.string-line {
+  width: 100%;
+  height: 2px;
+  border-top: 2px dashed #bbb;
+  margin: 40px auto -20px;
+  position: relative;
+  top: 30px;
+  z-index: 0;
+}
+
+.back-btn {
+  margin-top: 2rem;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  background: #ccc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
